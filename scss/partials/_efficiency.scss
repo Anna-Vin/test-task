@@ -1,0 +1,82 @@
+.efficiency-card {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 60px;
+    border: 1px solid $color-border;
+    border-radius: 7px;
+    font-size: 14px;
+    height: auto;
+    line-height: 21px;
+    margin-bottom: 40px;
+    padding-right: 0;
+
+    @include screen(md) {
+        height: 268px;
+        width: 100%;
+    }
+
+    .card__body {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: space-between;
+    }
+
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 21%;
+        content: "";
+        width: 8px;
+        height: 160px;
+        background: linear-gradient(350.45deg, #bfbafa 15.3%, #624bff 87.74%, #8f7fff 87.74%, #624bff 87.74%);
+        border-radius: 7px 0px 0px 7px;
+        transform: rotate(-180deg);
+    }
+
+    &-semititle {
+        color: $color-font-lilac;
+        margin-bottom: 17px;
+    }
+
+    .efficiency-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 0;
+        border-bottom: 1px solid $color-border;
+
+        span {
+            font-weight: bold;
+        }
+
+        .name {
+            display: inline-block;
+            width: 50px;
+        }
+    }
+
+    .average {
+        border: none;
+    }
+
+
+    .efficiency__total {
+        width: 100%;
+        margin-bottom: 20px;
+
+        @include screen(md) {
+            width: 48%;
+            margin-bottom: 0;
+        }
+    }
+
+    .efficiency__part {
+        width: 100%;
+
+        @include screen(md) {
+            width: 48%;
+        }
+    }
+}

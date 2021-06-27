@@ -1,0 +1,229 @@
+.card {
+    position: relative;
+    padding: 20px 30px;
+    border: 1px solid $color-border;
+    border-radius: 7px;
+    font-size: 14px;
+    line-height: 21px;
+    height: 696px;
+    margin-bottom: 20px !important;
+    padding-bottom: 40px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+
+    @include screen(md) {
+        padding: 40px 60px;
+        height: 606px;
+        margin-bottom: 0;
+    }
+
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 23%;
+        content: "";
+        width: 8px;
+        height: 320px;
+        background: linear-gradient(350.45deg, #bfbafa 15.3%, #624bff 87.74%, #8f7fff 87.74%, #624bff 87.74%);
+        border-radius: 7px 0px 0px 7px;
+        transform: rotate(-180deg);
+    }
+
+    &::after {
+        content: " ";
+        display: block;
+        background-color: $color-bg-dark;
+        height: 30px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+    }
+
+    span {
+        display: inline-block;
+    }
+
+    &__body {
+        max-height: 100%;
+        overflow-y: auto;
+        padding-right: 20px;
+        
+        &-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            margin-bottom: 20px;
+        }
+
+        &-title {
+            min-width: 20%;
+            color: $color-font-lilac;
+            font-weight: 600;
+            margin-right: 90px;
+
+        }
+
+        &-semititle {
+            color: $color-font-lilac;
+            margin-bottom: 17px;
+        }
+
+        &-desc {
+            width: 80%;
+        }
+
+        .time {
+            font-size: 24px;
+            color: $color-green;
+        }
+
+        .status-red {
+            color: $color-red;
+        }
+
+        .label {
+            position: relative;
+            display: inline;
+            padding: 3px 10px;
+            margin-left: 12px;
+            width: 65px;
+            background: linear-gradient(270deg, #7b75cb 0%, #544cba 100%);
+            color: white;
+            border-radius: 2px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -13px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 13px 13px 13px 0;
+                border-color: transparent #534cba transparent transparent;
+            }
+        }
+
+        .tag {
+            text-align: center;
+            font-size: 12px;
+            padding: 3px 12px;
+            width: 110px;
+            border: 1px solid $color-font-lilac;
+            border-radius: 15px;
+        }
+    }
+}
+
+
+
+.statistics__time {
+    
+    .card__body {
+        text-align: center;
+        margin: 0 auto;
+
+        @include screen(md) {
+        display: flex;
+        justify-content: space-between;
+        }
+
+    }
+
+    .statistics__time-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 0;
+        border-bottom: 1px solid $color-border;
+
+
+        .row-name {
+            font-weight: bold;
+        }
+
+        .row-hours {
+            font-weight: bold;
+        }
+    }
+
+    .row-padding {
+        margin-left: 20px;
+
+      
+        .row-name {
+            font-weight: normal;
+        }
+
+        .row-hours {
+            font-weight: normal;
+        }
+    }
+
+    .card__body-total {
+        
+        width: 100%;
+        margin-bottom: 20px;
+
+        @include screen(md) {
+            margin-bottom: 0;
+            width: 45%;
+        }
+
+        
+
+        .other {
+            border: none;
+        }
+
+        .sum {
+            border-bottom: 0;
+            border-top: 1px solid $color-border;
+        }
+
+    }
+
+
+    .card__body-part {
+        width: 100%;
+
+        @include screen(md) {
+            width: 45%;
+        }
+
+        .sum {
+            border: none;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+.statistics {
+
+    .row {
+        margin: 0;
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+
+    .col-12 {
+        margin: 0 auto;
+        max-width: 95%;
+        
+
+        @include screen(lg) {
+            max-width: none;
+        }
+    }
+
+    .col-xl-6 {
+        padding: 0;
+
+        @include screen(xl) {
+            padding-right: 25px;
+        }
+    }
+}

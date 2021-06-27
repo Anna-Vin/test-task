@@ -1,0 +1,66 @@
+body {
+    background-color: $color-bg-dark;
+    color: $color-font;
+    font-family: $font-main;
+}
+
+.title {
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.green {
+    color: $color-green;
+}
+
+.red {
+    color: $color-red;
+}
+
+.lilac {
+    color: $color-lilac;
+}
+
+
+.dark {
+    background-color: #1e242f !important;
+}
+
+.number {
+    text-align: end;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.card__body::-webkit-scrollbar, .table__body::-webkit-scrollbar {
+    width: 8px;
+    
+}
+
+.card__body::-webkit-scrollbar-track, .table__body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.card__body::-webkit-scrollbar-thumb, .table__body::-webkit-scrollbar-thumb {
+    background-color: rgba(143, 127, 255, 0.25);;
+    border-radius: 10px;
+    
+}
+
+.hidden {
+    // display: none !important;
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+}
+
+
+
