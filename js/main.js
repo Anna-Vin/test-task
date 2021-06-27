@@ -115,14 +115,14 @@ function createRow(row) {
         if (devLeft.length > 0) return `...<br><span class="lilac">Show more (${devLeft.length})</span>`
         else return ``;
     }
-  
+
     function showTypeLeft() {
         if (typeLeft.length > 0) return `...<br><span class="lilac">Show more (${typeLeft.length})</span>`
         else return ``;
     }
 
-    let devShort = `${row['dev'].slice(0,2).join(', ')}${showDevLeft()}`;
-    let typeShort = `${row['type'].slice(0,2).join(', ')}${showTypeLeft()}`;
+    let devShort = `${row['dev'].slice(0, 2).join(', ')}${showDevLeft()}`;
+    let typeShort = `${row['type'].slice(0, 2).join(', ')}${showTypeLeft()}`;
 
     let rowHTML = `<div class="table__row">
                         <div class="table__body--cell lilac">${row['name']}</div>
@@ -184,7 +184,7 @@ function sortTable(filterParam = 'estimation') {
     if (filterParam === sortField) {
         if (sortOrder == 'asc') sortOrder = 'desc';
         else if (sortOrder == 'desc') sortOrder = '';
-        else sortOrder == 'asc';
+        else sortOrder = 'asc';
     } else sortOrder = 'asc';
 
     sortField = filterParam;
@@ -203,7 +203,8 @@ function sortTable(filterParam = 'estimation') {
                 else return 0;
             });
             break;
-        default: filteredTableData = tableData;
+        default: filteredTableData = tableData.slice();
+            break;
     }
 }
 
