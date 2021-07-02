@@ -137,37 +137,37 @@ function createRow(row) {
 
     let rowMobileHTML = `<div class="card">
                             <div class="card__body">
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Task name</span>
-                                    <span class="card__body-desc lilac">${row['name']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Task name</span>
+                                    <span class="card__body--desc lilac">${row['name']}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Developer</span>
-                                    <span class="card__body-desc">${devShort}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Developer</span>
+                                    <span class="card__body--desc">${devShort}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Work Type</span>
-                                    <span class="card__body-desc">${typeShort}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Work Type</span>
+                                    <span class="card__body--desc">${typeShort}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Status</span>
-                                    <span class="card__body-desc ${row['status'] === 'Completed' ? 'green' : 'red'}"">${row['status']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Status</span>
+                                    <span class="card__body--desc ${row['status'] === 'Completed' ? 'green' : 'red'}"">${row['status']}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Estimation(h)</span>
-                                    <span class="card__body-desc">${row['estimation']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Estimation(h)</span>
+                                    <span class="card__body--desc">${row['estimation']}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Total time spent by All</span>
-                                    <span class="card__body-desc">${row['totalTime']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Total time spent by All</span>
+                                    <span class="card__body--desc">${row['totalTime']}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">My Time spent by Period(h)</span>
-                                    <span class="card__body-desc">${row['periodTime']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">My Time spent by Period(h)</span>
+                                    <span class="card__body--desc">${row['periodTime']}</span>
                                 </div>
-                                <div class="card__body-row">
-                                    <span class="card__body-title">Efficiency</span>
-                                    <span class="card__body-desc">${row['efficiency']}</span>
+                                <div class="card__body--row">
+                                    <span class="card__body--title">Efficiency</span>
+                                    <span class="card__body--desc">${row['efficiency']}</span>
                                 </div>
                             </div>
                         </div>`;

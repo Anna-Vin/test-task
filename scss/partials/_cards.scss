@@ -50,14 +50,14 @@
         overflow-y: auto;
         padding-right: 20px;
         
-        &-row {
+        &--row {
             display: flex;
             justify-content: flex-start;
             align-items: baseline;
             margin-bottom: 20px;
         }
 
-        &-title {
+        &--title {
             min-width: 20%;
             color: $color-font-lilac;
             font-weight: 600;
@@ -65,12 +65,12 @@
 
         }
 
-        &-semititle {
+        &--semititle {
             color: $color-font-lilac;
             margin-bottom: 17px;
         }
 
-        &-desc {
+        &--desc {
             width: 80%;
         }
 
@@ -133,7 +133,7 @@
 
     }
 
-    .statistics__time-row {
+    .statistics__time--row {
         display: flex;
         justify-content: space-between;
         padding: 7px 0;
@@ -162,7 +162,7 @@
         }
     }
 
-    .card__body-total {
+    .card__body--total {
         
         width: 100%;
         margin-bottom: 20px;
@@ -186,7 +186,7 @@
     }
 
 
-    .card__body-part {
+    .card__body--part {
         width: 100%;
 
         @include screen(md) {

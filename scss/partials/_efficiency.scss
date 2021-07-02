@@ -35,12 +35,12 @@
         transform: rotate(-180deg);
     }
 
-    &-semititle {
+    &--semititle {
         color: $color-font-lilac;
         margin-bottom: 17px;
     }
 
-    .efficiency-row {
+    .efficiency--row {
         width: 100%;
         display: flex;
         justify-content: space-between;
