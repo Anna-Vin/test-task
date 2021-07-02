@@ -1,3 +1,4 @@
+const baseURL = 'https://gist.githubusercontent.com/Anna-Vin/97ee387fa2a338a2bd6967c085d4b952/raw/b9d463e3f0a651f21440507f5164239209ebfa07/table.json';
 let tableData = [];
 let filteredTableData = [];
 let rowData = {};
@@ -24,7 +25,7 @@ getTableData(1);
 setLoading();
 
 function getTableData(page) {
-    fetch('https://gist.githubusercontent.com/Anna-Vin/97ee387fa2a338a2bd6967c085d4b952/raw/b9d463e3f0a651f21440507f5164239209ebfa07/table.json')
+    fetch(baseURL)
         .then((response) => {
             return response.json();
         })
@@ -108,26 +109,17 @@ function renderTable() {
 
 function createRow(row) {
 
-    let devLeft = row['dev'].slice(2);
-    let typeLeft = row['type'].slice(2);
-
-    function showDevLeft() {
-        if (devLeft.length > 0) return `...<br><span class="lilac">Show more (${devLeft.length})</span>`
-        else return ``;
+    function shortenDesc(field) {
+        let fieldLeft = row[field].slice(2);
+        let showMore = ``;
+        if (fieldLeft.length > 0) showMore = `...<br><span class="lilac">Show more (${fieldLeft.length})</span>`;
+        return `${row[field].slice(0, 2).join(', ')}${showMore}`
     }
-
-    function showTypeLeft() {
-        if (typeLeft.length > 0) return `...<br><span class="lilac">Show more (${typeLeft.length})</span>`
-        else return ``;
-    }
-
-    let devShort = `${row['dev'].slice(0, 2).join(', ')}${showDevLeft()}`;
-    let typeShort = `${row['type'].slice(0, 2).join(', ')}${showTypeLeft()}`;
 
     let rowHTML = `<div class="table__row">
                         <div class="table__body--cell lilac">${row['name']}</div>
-                        <div class="table__body--cell">${devShort}</div>
-                        <div class="table__body--cell">${typeShort}</div>
+                        <div class="table__body--cell">${shortenDesc('dev')}</div>
+                        <div class="table__body--cell">${shortenDesc('type')}</div>
                         <div class="table__body--cell ${row['status'] === 'Completed' ? 'green' : 'red'}">${row['status']}</div>
                         <div class="table__body--cell number" style="padding-right: 60px;">${row['estimation']}</div>
                         <div class="table__body--cell number">${row['totalTime']}</div>
@@ -143,11 +135,11 @@ function createRow(row) {
                                 </div>
                                 <div class="card__body--row">
                                     <span class="card__body--title">Developer</span>
-                                    <span class="card__body--desc">${devShort}</span>
+                                    <span class="card__body--desc">${shortenDesc('dev')}</span>
                                 </div>
                                 <div class="card__body--row">
                                     <span class="card__body--title">Work Type</span>
-                                    <span class="card__body--desc">${typeShort}</span>
+                                    <span class="card__body--desc">${shortenDesc('type')}</span>
                                 </div>
                                 <div class="card__body--row">
                                     <span class="card__body--title">Status</span>
@@ -173,7 +165,7 @@ function createRow(row) {
                         </div>`;
 
     tableBody.insertAdjacentHTML('beforeend', rowHTML);
-    tableMobile.insertAdjacentHTML('beforeend', rowMobileHTML)
+    tableMobile.insertAdjacentHTML('beforeend', rowMobileHTML);
 }
 
 
