@@ -3,7 +3,6 @@ let tableData = [];
 let filteredTableData = [];
 let rowData = {};
 let darkRows = [];
-let isLoaded = false;
 let sortOrder = '';
 let sortField = '';
 
@@ -20,28 +19,31 @@ const periodTimeFilter = document.querySelector('.button_periodTime');
 const efficiencyFilter = document.querySelector('.button_efficiency');
 
 
-// Get table data at start
-getTableData(1);
-setLoading();
+// Get table data and build table at start
+fetchDataAndBuildTable(1);
 
 function getTableData(page) {
-    fetch(baseURL)
+    setLoading(true);
+    return fetch(baseURL)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             if (page === 1) tableData = data.slice(0, 10);
             else if (page === 2) tableData = data.slice(10, 20);
-            isLoaded = true;
-            sortTable();
-            renderTable();
-            setLoading();
+            setLoading(false);
         });
 
 }
 
-function setLoading() {
-    if (!isLoaded) {
+async function fetchDataAndBuildTable(page) {
+    await getTableData(page);
+    sortTable();
+    renderTable();
+}
+
+function setLoading(showLoader) {
+    if (showLoader) {
         loader.classList.remove('hidden');
         tableContainer.classList.add('hidden');
     } else {
@@ -71,9 +73,7 @@ function setPage(page) {
             break;
         default: break;
     };
-    isLoaded = false;
-    setLoading()
-    getTableData(page);
+    fetchDataAndBuildTable(page);
 }
 
 prevButton.addEventListener('click', () => setPage(1));
@@ -103,7 +103,7 @@ function renderTable() {
                             </div>
                             <div class="table__footer--cell">
                                 <span>100% (${sumTotalArr.reduce((a, b) => a + b)}h)</span>
-                            </div>`
+                            </div>`;
 }
 
 
